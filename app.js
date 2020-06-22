@@ -10,7 +10,10 @@ const MongoStore = require('connect-mongo')(session)
 const connectDB = require('./config/db');
 
 // Load config
-dotenv.config({ path: './config/config.env' });
+try {
+  dotenv.config({ path: './config/config.env' });
+} catch (error) {  
+}
 
 // Passport config
 require('./config/passport')(passport)
