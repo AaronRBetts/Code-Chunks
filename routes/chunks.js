@@ -56,7 +56,7 @@ router.get('/edit/:id', ensureAuth, async (req, res) => {
         res.redirect('/chunks')
     } else {
         res.render('chunks/edit', {
-            story,
+            chunk,
         })
     }
 })
