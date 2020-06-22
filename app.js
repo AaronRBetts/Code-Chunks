@@ -1,10 +1,12 @@
 const path = require('path');
 const express = require('express');
+const mongoose = require('mongoose')
 const dotenv = require('dotenv');
 const morgan = require('morgan');
 const exphbs = require('express-handlebars');
 const passport = require('passport');
 const session = require('express-session');
+const MongoStore = require('connect-mongo')(session)
 const connectDB = require('./config/db');
 
 // Load config
@@ -15,21 +17,35 @@ require('./config/passport')(passport)
 
 connectDB()
 
-// Logging
 const app = express();
+
+//Body parser to accept form data
+app.use(express.urlencoded({ extended: false }))
+app.use(express.json())
+
+// Logging
+
 if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'))
 }
 
+// Handlebars helpers
+const { formatDate } = require('./helpers/hbs')
+
 //Handlebars template layout & set file extension to .hbs
-app.engine('.hbs', exphbs({ defaultLayout: 'main', extname: '.hbs' }));
+app.engine('.hbs', exphbs({
+  helpers: {
+    formatDate,
+  }, defaultLayout: 'main', extname: '.hbs'
+}));
 app.set('view engine', '.hbs');
 
 // Sessions
 app.use(session({
   secret: 'mySecret',
   resave: false,
-  saveUninitialized: false
+  saveUninitialized: false,
+  store: new MongoStore({ mongooseConnection: mongoose.connection })
 }))
 
 // Passport middleware
@@ -41,7 +57,8 @@ app.use(express.static(path.join(__dirname, 'public')))
 
 //Routes
 app.use('/', require('./routes/index'));
-app.use('/auth', require('./routes/auth'))
+app.use('/auth', require('./routes/auth'));
+app.use('/chunks', require('./routes/chunks'));
 
 const PORT = process.env.PORT || 5000;
 

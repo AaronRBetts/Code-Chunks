@@ -1,1 +1,26 @@
-<h1>Dashboard</h1>
+<h2>{{name}}!</h2>
+{{#if chunks}}
+<p>Check out your Chunks</p>
+<table class="striped">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Date</th>
+            <th>Status</th>
+            <th>Language</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each chunks}}
+        <tr>
+            <td><a href="/chunks/{{_id}}"></a>{{title}}</td>
+            <td>{{formatDate createdAt 'MMMM Do YYYY, h:mm a'}}</td>
+            <td><span class="dash-status">{{status}}</span></td>
+            <td>{{language}}</td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+{{else}}
+<p>You don't have any saved Code Chunks</p>
+{{/if}}

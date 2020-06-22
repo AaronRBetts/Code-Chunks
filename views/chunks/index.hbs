@@ -1,0 +1,33 @@
+<h1>Public Chunks</h1>
+<div class="row">
+    {{#each chunks}}
+    <div class="row">
+        <div class="card">
+            <div class="card-image">
+                {{!-- editIcon --}}
+            </div>
+            <div class="card-content center-align">
+                <h4>{{language}}</h4>
+                <ul class="collapsible">
+                    <li>
+                        <div class="collapsible-header"><i class="fa fa-plus"></i>
+                            <h6>{{title}}</h6>
+                        </div>
+                        <div class="collapsible-body"><span>{{body}}</span></div>
+                    </li>
+                </ul>
+                <div class="chip">
+                    <img src="{{user.image}}" alt="user image">
+                    <a href="/chunks/user/{{user._id}}">{{user.displayName}}</a>
+                    <p>Created on: {{formatDate createdAt 'MMMM Do YYYY, h:mm a'}}</p>
+                </div>
+            </div>
+            {{!-- <div class="card-action center-align">
+                <a href="/chunks/{{_id}}" class="btn grey">See full Chunk</a>
+            </div> --}}
+        </div>
+    </div>
+    {{else}}
+    <p>No Chunks found :(</p>
+    {{/each}}
+</div>

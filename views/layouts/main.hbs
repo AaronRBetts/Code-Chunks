@@ -7,6 +7,9 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css">
   <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.55.0/codemirror.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/theme/base16-dark.css">
+  <link rel="stylesheet" href="">
   <title>Code Chunks</title>
 </head>
 
@@ -16,13 +19,24 @@
   {{> }} for partials 
   --}}
   {{> _header}}
+  {{> _add_btn}}
   <div class="container">
     {{{body}}}
   </div>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.55.0/codemirror.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.55.0/mode/javascript/javascript.js"></script>
   <script>
-    M.Sidenav.init(document.querySelector('.sidenav'))
+    M.Sidenav.init(document.querySelector('.sidenav'));
+    M.FormSelect.init(document.querySelector('#status'));
+    M.Collapsible.init(document.querySelectorAll('.collapsible'));
+    const codemirrorEditor = CodeMirror.fromTextArea(document.getElementById('body'), {
+      lineNumbers: true,
+      tabSize: 2,
+      lineWrapping: true,
+      theme: "base16-dark"
+    });
   </script>
 </body>
 
