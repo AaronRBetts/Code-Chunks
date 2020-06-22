@@ -41,4 +41,24 @@ router.get('/', ensureAuth, async (req, res) => {
 })
 
 
+// @desc  Show edit chunk page
+// @route GET /chunks/edit/:id
+router.get('/edit/:id', ensureAuth, async (req, res) => {
+    const chunk = await Chunk.findOne({
+        _id: req.params.id
+    }).lean()
+
+    if (!chunk) {
+        return res.render('error/404')
+    }
+
+    if (chunk.user != req.user.id) {
+        res.redirect('/chunks')
+    } else {
+        res.render('chunks/edit', {
+            story,
+        })
+    }
+})
+
 module.exports = router;

@@ -31,7 +31,7 @@
     M.Sidenav.init(document.querySelector('.sidenav'));
     M.FormSelect.init(document.querySelector('#status'));
     M.Collapsible.init(document.querySelectorAll('.collapsible'));
-    const codemirrorEditor = CodeMirror.fromTextArea(document.getElementById('body'), {
+    CodeMirror.fromTextArea(document.querySelectorAll('#body'), {
       lineNumbers: true,
       tabSize: 2,
       lineWrapping: true,
