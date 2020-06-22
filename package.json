@@ -4,14 +4,8 @@
   "description": "App to create and search for commonly used code chunks",
   "main": "app.js",
   "scripts": {
-    "comment start": "cross-env NODE_ENV=production node app",
-    "comment dev": "cross-env NODE_ENV=development nodemon app",
-    "dev": "react-scripts start",
-    "start": "serve -s build",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
-    "heroku-postbuild": "npm run build"
+    "start": "cross-env NODE_ENV=production node app",
+    "dev": "cross-env NODE_ENV=development nodemon app"
   },
   "engines": {
     "node": "12.16.0"
