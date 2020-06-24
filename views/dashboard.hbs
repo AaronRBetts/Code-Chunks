@@ -13,7 +13,16 @@
     <tbody>
         {{#each chunks}}
         <tr>
-            <td><a href="/chunks/edit/{{_id}}">{{title}}</a></td>
+            <td>
+                <ul class="collapsible">
+                    <li>
+                        <div class="collapsible-header"><i class="fa fa-plus"></i>
+                            <h6><a href="/chunks/edit/{{_id}}">{{title}}</a></h6>
+                        </div>
+                        <div class="collapsible-body"><span>{{body}}</span></div>
+                    </li>
+                </ul>
+            </td>
             <td>{{formatDate createdAt 'MMMM Do YYYY, h:mm a'}}</td>
             <td><span class="dash-status">{{status}}</span></td>
             <td>{{language}}</td>
