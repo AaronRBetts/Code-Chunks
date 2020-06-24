@@ -16,3 +16,35 @@ p {
   float: left;
   margin-right: 10px;
 }
+
+.dash-card {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.dash-title {
+  min-width: 300px;
+  width: 25%;
+}
+
+.dash-date {
+  min-width: 200px;
+  width: 15%;
+}
+
+.dash-status {
+  min-width: 75px;
+  width: 10%;
+}
+
+.dash-lang {
+  min-width: 75px;
+  width: 10%;
+}
+
+.dash-btns {
+  justify-self: right;
+  display: flex;
+}
