@@ -1,16 +1,17 @@
 <h3>Edit your Chunk</h3>
 <div class="row">
-    <form action="/chunks" method="post" class="col s12">
+    <form action="/chunks/{{chunk._id}}" method="POST" class="col s12">
+        <input type="hidden" name="_method" value="PUT">
         <div class="row">
             <div class="input-field">
-                <input type="text" id="title" name="title">
+                <input type="text" id="title" name="title" value="{{chunk.title}}">
                 <label for="title">Title</label>
             </div>
         </div>
 
         <div class="row">
             <div class="input-field">
-                <input type="text" id="language" name="language">
+                <input type="text" id="language" name="language" value="{{chunk.language}}">
                 <label for="title">Language</label>
             </div>
         </div>
@@ -18,8 +19,10 @@
         <div class="row">
             <div class="input-field">
                 <select name="status" id="status">
+                    {{#select chunk.status}}
                     <option value="public" selected>Public</option>
                     <option value="private">Private</option>
+                    {{/select}}
                 </select>
                 <label for="status">Visibility</label>
             </div>
@@ -28,7 +31,7 @@
         <div class="row">
             <div class="input-field">
                 <h5>Paste or type your Code Chunk:</h5>
-                <textarea name="body" id="body"></textarea>
+                <textarea name="body" id="body">{{chunk.body}}</textarea>
             </div>
         </div>
 
