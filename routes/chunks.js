@@ -40,6 +40,23 @@ router.get('/', ensureAuth, async (req, res) => {
     }
 })
 
+// @desc  Show favorite chunks
+// @route GET /chunks/add
+router.get('/', ensureAuth, async (req, res) => {
+    try {
+        const chunks = await Chunk.find({ status: 'public' })
+            .populate('user')
+            .sort({ createdAt: 'desc' })
+            .lean()
+        res.render('chunks/index', {
+            chunks
+        })
+    } catch (err) {
+        console.log(err)
+        res.render('error/500')
+    }
+})
+
 
 // @desc  Show edit chunk page
 // @route GET /chunks/edit/:id
