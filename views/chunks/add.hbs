@@ -3,15 +3,19 @@
     <form action="/chunks" method="POST" class="col s12">
         <div class="row">
             <div class="input-field">
-                <input type="text" id="title" name="title">
+                <input type="text" id="title" name="title" placeholder="What do i do?">
                 <label for="title">Title</label>
             </div>
         </div>
 
         <div class="row">
             <div class="input-field">
-                <input type="text" id="language" name="language">
-                <label for="title">Language</label>
+                <select name="language" id="language">
+                    <option value="html">html</option>
+                    <option value="CSS">CSS</option>
+                    <option value="Javascript">Javascript</option>
+                </select>
+                <label for="language">Language</label>
             </div>
         </div>
 

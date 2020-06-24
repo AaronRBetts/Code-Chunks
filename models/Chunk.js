@@ -3,11 +3,13 @@ const mongoose = require('mongoose');
 const ChunkSchema = new mongoose.Schema({
     title: {
         type: String,
-        required: true
+        required: true,
+        default: ''
     },
     body: {
         type: String,
-        required: true
+        required: true,
+        default: ''
     },
     status: {
         type: String,
@@ -16,11 +18,12 @@ const ChunkSchema = new mongoose.Schema({
     },
     language: {
         type: String,
-        required: true
+        default: 'html',
+        enum: ['html', 'CSS', 'Javascript']
     },
-    tags: {
-        type: Array,
-        default: []
+    favorites: {
+        type: Number,
+        default: 0
     },
     user: {
         type: mongoose.Schema.Types.ObjectId,

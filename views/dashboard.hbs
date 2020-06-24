@@ -11,21 +11,21 @@
                         <div class="collapsible-header">
                             <i class="fa fa-plus"></i>
                             <div class="dash-card">
+                                <div class="dash-btn halfway-fab">
+                                    <a class="btn orange btn-small" href="/chunks/edit/{{_id}}">
+                                        <i class="fas fa-edit"></i>
+                                    </a>
+                                    <form action="/chunks/{{_id}}" method="POST" id="delete-form">
+                                        <input type="hidden" name="method" value="DELETE">
+                                        <button type="submit" class="btn red btn-small">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </form>
+                                </div>
                                 <h5 class="dash-title">{{title}}</h5>
                                 <h6 class="dash-date">{{formatDate createdAt 'MMMM Do YYYY, h:mm a'}}</h6>
                                 <h6 class="dash-status">{{status}}</h6>
                                 <h6 class="dash-lang">{{language}}</h6>
-                            </div>
-                            <div class="dash-btns">
-                                <a class="btn btn-float orange" href="/chunks/edit/{{_id}}">
-                                    <i class="fas fa-edit"></i>
-                                </a>
-                                <form action="/chunks/{{_id}}" method="POST" id="delete-form">
-                                    <input type="hidden" name="method" value="DELETE">
-                                    <button type="submit" class="btn red">
-                                        <i class="fas fa-trash"></i>
-                                    </button>
-                                </form>
                             </div>
                         </div>
                         <div class="collapsible-body">

@@ -19,6 +19,7 @@
   {{> }} for partials 
   --}}
   {{> _header}}
+  {{> _background_img}}
   {{> _add_btn}}
   <div class="container">
     {{{body}}}
@@ -30,12 +31,17 @@
   <script>
     M.Sidenav.init(document.querySelector('.sidenav'));
     M.FormSelect.init(document.querySelector('#status'));
+    M.FormSelect.init(document.querySelector('#language'));
     M.Collapsible.init(document.querySelectorAll('.collapsible'));
     CodeMirror.fromTextArea(document.getElementById('body'), {
       lineNumbers: true,
       tabSize: 2,
       lineWrapping: true,
       theme: "base16-dark"
+    });
+    document.addEventListener('DOMContentLoaded', function () {
+      var elems = document.querySelectorAll('.sidenav');
+      var instances = M.Sidenav.init(elems, options);
     });
   </script>
 </body>

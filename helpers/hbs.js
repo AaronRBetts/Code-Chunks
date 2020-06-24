@@ -26,5 +26,5 @@ module.exports = {
                 new RegExp(`>${selected}</option>`),
                 ` selected="selected"$&`
             )
-    }
+    },
 }

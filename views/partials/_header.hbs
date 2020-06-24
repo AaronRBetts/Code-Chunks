@@ -1,15 +1,19 @@
-<nav class="amber darken-2">
-    <div class="nav-wrapper container">
-        <a href="#!" class="brand-logo center">Code Chunks</a>
-        <a href="#" data-target="mobile-demo" class="sidenav-trigger show-on-large">
-            <i class="fas fa-bars"></i></a>
-        <ul class="sidenav" id="mobile-demo">
-            <li>
-                <h2 class="amber">Code Chunks</h2>
-            </li>
-            <li><a href="/chunks">Public Chunks</a></li>
-            <li><a href="/dashboard">Dashboard</a></li>
-            <li><a href="/auth/logout">Log out</a></li>
+<nav>
+    <div class="nav-wrapper amber darken-2">
+        <a href="#!" class="brand-logo"><i class="fas fa-laptop-code"></i> Code Chunks</a>
+        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="fas fa-hamburger"></i></a>
+        <ul class="right hide-on-med-and-down">
+            <li><a href="/chunks"><i class="fas fa-home"></i> Public Chunks</a></li>
+            <li><a href="/dashboard"><i class="fas fa-user"></i> Dashboard</a></li>
+            {{!-- <li><a href="/dashboard"><i class="fas fa-heart"></i> Favorites</a></li> --}}
+            <li><a href="/auth/logout"><i class="fas fa-sign-out-alt"></i> Log out</a></li>
         </ul>
     </div>
 </nav>
+
+<ul class="sidenav" id="mobile-demo">
+    <li><a href="/chunks"><i class="fas fa-home"></i> Public Chunks</a></li>
+    <li><a href="/dashboard"><i class="fas fa-user"></i> Dashboard</a></li>
+    <li><a href="/dashboard"><i class="fas fa-heart"></i> Favorites</a></li>
+    <li><a href="/auth/logout"><i class="fas fa-sign-out-alt"></i> Log out</a></li>
+</ul>

@@ -9,10 +9,23 @@
             </div>
         </div>
 
-        <div class="row">
+        {{!-- <div class="row">
             <div class="input-field">
                 <input type="text" id="language" name="language" value="{{chunk.language}}">
                 <label for="title">Language</label>
+            </div>
+        </div> --}}
+
+        <div class="row">
+            <div class="input-field">
+                <select name="language" id="language">
+                    {{#select chunk.language}}
+                    <option value="html" selected>html</option>
+                    <option value="CSS">CSS</option>
+                    <option value="Javascript">Javascript</option>
+                    {{/select}}
+                </select>
+                <label for="language">Language</label>
             </div>
         </div>
 
