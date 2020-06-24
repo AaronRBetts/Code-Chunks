@@ -104,4 +104,23 @@ router.delete('/:id', ensureAuth, async (req, res) => {
     }
 })
 
+// @desc  Show user chunks
+// @route GET /chunks/user/userId
+router.get('/user/:userId', ensureAuth, async (req, res) => {
+    try {
+        const chunks = await Chunk.find({
+            user: req.params.userId,
+            status: 'public'
+        }).populate('user')
+            .lean()
+
+        res.render('chunks/index', {
+            chunks
+        })
+    } catch (err) {
+        console.error(err)
+        res.render('error/500')
+    }
+})
+
 module.exports = router;
