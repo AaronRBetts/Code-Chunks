@@ -83,8 +83,10 @@ p {
   display: flex;
 }
 
-.dash-btn *{
+.dash-btn i{
   margin: auto;
+  text-align: center;
+  font-size: 20px;
 }
 
 .dash-btn *:first-child {
